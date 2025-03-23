@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script src="https://sdk.mercadopago.com/js/v2">
+        const mp = new MercadoPago("TEST-9edc3cf4-a594-4096-89b0-12e08cfa173c");
+    </script>
+    
+    <form id="form-checkout">
+        <div>
+          <label for="payerPhone">Phone Number</label>
+          <input id="form-checkout__payerPhone" name="payerPhone" type="text" />
+        </div>
+        <div>
+          <label for="payerOTP">OTP</label>
+          <input id="form-checkout__payerOTP" name="payerOTP" type="text" />
+        </div>
+        <div>
+          <button onclick="handleYape()">Create YAPE</button>
+        </div>
+      </form>
+
+      <script>
+            (async function handleYape () {
+                const otp = docment.getElementById("form-checkout__payerOTP").value;
+                const phoneNumber = docment.getElementById("form-checkout__payerPhone").value;
+                const yapeOptions = {
+                    otp,
+                    phoneNumber
+                };
+                const yape = mp.yape(yapeOptions);
+                const yapeToken = await yape.create();
+            return yapeToken;
+            });
+      </script>
+</body>
+</html>

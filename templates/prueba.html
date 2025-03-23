@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/formularioYape.css">
+    <title>Pagar con Yape</title>
+</head>
+<body>
+    <div id="formularioYape">
+      <form id="form-checkout">
+        <div>
+          <label for="payerPhone">Número de Celular</label>
+          <input id="form-checkout__payerPhone" name="payerPhone" type="text" required />
+        </div>
+        <div>
+          <label for="payerOTP">Código OTP</label>
+          <input id="form-checkout__payerOTP" name="payerOTP" type="text" required />
+        </div>
+        <button type="button" onclick="handleYape()">Pagar con Yape</button>
+      </form>
+    </div>
+      
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+    <script src="/static/js/yapeOTP.js">
+    </script>
+</body>
+</html>
